@@ -40,6 +40,8 @@ export const cloudflareR2Client = () => new S3Client({
     accessKeyId: CLOUDFLARE_R2_ACCESS_KEY,
     secretAccessKey: CLOUDFLARE_R2_SECRET_ACCESS_KEY,
   },
+  requestChecksumCalculation: 'WHEN_REQUIRED',
+  responseChecksumValidation: 'WHEN_REQUIRED',
 });
 
 const urlForKey = (key?: string, isPublic = true) => isPublic
@@ -113,6 +115,6 @@ export const cloudflareR2GetSignedUrl = (
   const command = method === 'GET'
     ? new GetObjectCommand({ Bucket: CLOUDFLARE_R2_BUCKET, Key })
     // eslint-disable-next-line max-len
-    : new PutObjectCommand({ Bucket: CLOUDFLARE_R2_BUCKET, Key, ACL: 'public-read' });
+    : new PutObjectCommand({ Bucket: CLOUDFLARE_R2_BUCKET, Key });
   return getSignedUrl(client, command, { expiresIn });
 };
