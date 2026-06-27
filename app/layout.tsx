@@ -49,29 +49,7 @@ export const metadata: Metadata = {
     title: META_TITLE,
     description: META_DESCRIPTION,
   },
-  icons: [{
-    url: '/favicon.ico',
-    rel: 'icon',
-    type: 'image/png',
-    sizes: '180x180',
-  }, {
-    url: '/favicons/light.png',
-    rel: 'icon',
-    media: '(prefers-color-scheme: light)',
-    type: 'image/png',
-    sizes: '32x32',
-  }, {
-    url: '/favicons/dark.png',
-    rel: 'icon',
-    media: '(prefers-color-scheme: dark)',
-    type: 'image/png',
-    sizes: '32x32',
-  }, {
-    url: '/favicons/apple-touch-icon.png',
-    rel: 'icon',
-    type: 'image/png',
-    sizes: '180x180',
-  }],
+  icons: '/favicon.ico',
   ...DEBUG_OUTPUTS_ENABLED && {
     other: {
       'build': VERCEL_GIT_COMMIT_SHA_SHORT ?? 'unknown',
